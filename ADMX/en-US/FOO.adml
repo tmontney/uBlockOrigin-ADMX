@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--                                                                             -->
+<!-- This file defines the "FOO Components" folder in the Group Policy editor -->
+<!--                                                                             -->
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions"
+    revision="1.0" schemaVersion="1.0">
+    <displayName>FOO Components folder</displayName>
+    <description>This file defines the "FOO Components" folder</description>
+    <resources>
+        <stringTable>
+            <string id="FOO_COMPONENTS">FOO Components</string>
+            <string id="FOO_COMPONENTS_HELP">The group policies in this folder are unofficial extensions, because official ones did not exist.</string>
+        </stringTable>
+    </resources>
+</policyDefinitionResources>

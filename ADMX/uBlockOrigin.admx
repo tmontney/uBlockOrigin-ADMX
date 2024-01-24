@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0"
+  xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+  <policyNamespaces>
+    <target prefix="ubo" namespace="uBlockOrigin.Policies.uBlockOrigin" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+    <using prefix="foo" namespace="FOO.Policies.Base" />
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <supportedOn>
+    <definitions>
+      <definition name="SUPPORTED_Platform_Since" displayName="$(string.ADMXPolicy_SupportedOn)" />
+    </definitions>
+  </supportedOn>
+  <categories>
+    <category name="uBlockOrigin" displayName="$(string.uBlockOrigin)"
+      explainText="$(string.Explain_uBlockOrigin)">
+      <parentCategory ref="foo:FOO_COMPONENTS" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="Policy_OverwriteSettings" class="Machine"
+      displayName="$(string.Policy_OverwriteSettings)"
+      explainText="$(string.Explain_OverwriteSettings)"
+      presentation="$(presentation.presentation_OverwriteSettings)"
+      key="SOFTWARE\Policies\Microsoft\Edge\3rdparty\Extensions\odfafepnkmbhccpbejgmiehpchacaeak\policy">
+      <parentCategory ref="uBlockOrigin" />
+      <supportedOn ref="SUPPORTED_Platform_Since" />
+      <elements>
+        <text id="policy_OverwriteSettingsValue" valueName="toOverwrite" required="true" />
+      </elements>
+    </policy>
+  </policies>
+</policyDefinitions>

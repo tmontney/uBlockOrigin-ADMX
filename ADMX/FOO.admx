@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--                                                                                    -->
+<!-- This file defines the shared "FOO Components" folder in the Group Policy editor -->
+<!--                                                                                    -->
+<!-- To appear as a subfolder                                                           -->
+<!-- Add a namespace:    <using prefix="foo" namespace="FOO.Policies.Base" />     -->
+<!-- Reference:          <parentCategory ref="foo:FOO_COMPONENTS" />              -->
+<!--                                                                                    -->
+<!-- The company acronym (of the one who created this) is used to avoid namespace overlap  -->
+<!-- This is done whether GPOs exist or not (as they may be created in the future)  -->
+<!-- Additionally, so it is clearly evident that it is not an official GPO  -->
+<!--                                                                                    -->
+<!-- Everything in XML is CASE-SENSITIVE. If your 'ref' attributes don't follow this, importing to Intune may fail: -->
+<!-- "object not set to an instance of an object" -->
+<!--                                                                                    -->
+<!-- Take care when formatting XML. You will see those line breaks in the string table -->
+<!--                                                                                    -->
+<!-- Useful ADMX resources -->
+<!-- Latest ADMX Reference Guide: https://www.microsoft.com/en-us/download/details.aspx?id=7101 -->
+<!-- Enabled vs Disabled vs Not Configured: https://devblogs.microsoft.com/oldnewthing/20110606-00/?p=10493 -->
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    revision="1.0" schemaVersion="1.0"
+    xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+    <policyNamespaces>
+        <target prefix="foo" namespace="FOO.Policies.Base" />
+        <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+    </policyNamespaces>
+    <resources minRequiredRevision="1.0" />
+    <categories>
+        <category name="FOO_COMPONENTS"
+            displayName="$(string.FOO_COMPONENTS)"
+            explainText="$(string.FOO_COMPONENTS_HELP)" />
+    </categories>
+</policyDefinitions>

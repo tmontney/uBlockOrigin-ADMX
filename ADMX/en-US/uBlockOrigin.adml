@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0"
+    xmlns="http://www.microsoft.com/GroupPolicy/PolicyDefinitions">
+    <displayName></displayName>
+    <description></description>
+    <resources>
+        <stringTable>
+            <string id="ADMXPolicy_SupportedOn">Microsoft Edge version 79, Windows 10 or later</string>
+            <string id="Policy_OverwriteSettings">Configure Settings (Overwrite)</string>
+            <string id="Explain_OverwriteSettings">
+Microsoft Edge may need to restart multiple times to apply the changes.
+
+All settings listed here replace existing values. The following supported settings are listed below:
+* filters
+* filterLists
+* trustedSiteDirectives
+
+The value must be in JSON and ON A SINGLE LINE. (The following example is formatted, on multiple lines, for readability.) Example value:
+{
+    "filters":  [
+
+                ],
+    "filterLists":  [
+                        "user-filters",
+                        "ublock-filters",
+                        "ublock-badware",
+                        "ublock-privacy",
+                        "ublock-abuse",
+                        "ublock-unbreak",
+                        "easylist",
+                        "easyprivacy",
+                        "urlhaus-1",
+                        "plowe-0"
+                    ],
+    "trustedSiteDirectives":  [
+                                  "about-scheme",
+                                  "chrome-extension-scheme",
+                                  "chrome-scheme",
+                                  "edge-scheme",
+                                  "moz-extension-scheme",
+                                  "opera-scheme",
+                                  "vivaldi-scheme",
+                                  "wyciwyg-scheme"
+                              ]
+}
+
+(For additional information, refer to the following: https://github.com/gorhill/uBlock/wiki/Deploying-uBlock-Origin:-configuration#tooverwrite)
+
+* If set to Enabled: The settings specified will be configured (and replace those existing settings).
+* If set to Disabled or Not Configured: The settings will be retained but no longer managed.
+    * If you wish to revert to "factory settings", use the default value for Enabled.
+            </string>
+            <string id="uBlockOrigin">uBlock Origin</string>
+            <string id="Explain_uBlockOrigin">The multi-browser content blocker by Raymond Hill.</string>
+        </stringTable>
+        <presentationTable>
+            <presentation id="presentation_OverwriteSettings">
+                <textBox refId="policy_OverwriteSettingsValue">
+                    <label>
+An unformatted, single-line, JSON value.
+                    </label>
+                    <defaultValue>
+{"filters":[],"filterLists":["user-filters","ublock-filters","ublock-badware","ublock-privacy","ublock-abuse","ublock-unbreak","easylist","easyprivacy","urlhaus-1","plowe-0"],"trustedSiteDirectives":["about-scheme","chrome-extension-scheme","chrome-scheme","edge-scheme","moz-extension-scheme","opera-scheme","vivaldi-scheme","wyciwyg-scheme"]}</defaultValue>
+                </textBox>
+            </presentation>
+        </presentationTable>
+    </resources>
+</policyDefinitionResources>
